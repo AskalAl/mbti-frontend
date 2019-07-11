@@ -1,0 +1,117 @@
+:root {
+  --accent-color: rgb(32, 32, 152);
+  --highlight-color: rgba(255, 206, 206, 0.50);
+}
+
+.page {
+  background-color: whitesmoke;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.06em;
+}
+
+.header {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  align-self: center;
+}
+
+.header-text {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.q-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  min-width: 400px;
+}
+
+
+.q-alert-label {
+  font-size: 0.8em;
+  font-weight: bold;
+  margin: 0.9rem 0 0.9rem 0;
+  text-transform: uppercase;
+}
+
+.q-email-input {
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.q-select-group {
+  display: flex;
+  height: 30px;
+}
+
+.q-select-item {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  font-weight: bolder;
+  align-self: center;
+}
+
+.q-select-item:first-child {
+  margin-right: 12px;
+  text-align: right;
+}
+
+.q-select-item:last-child {
+  margin-left: 12px;
+  text-align: left;
+}
+
+.q-select-radio {
+  transform: scale(1.25);
+}
+
+.q-select-radio:nth-child(4) .custom-control-label::before {
+  background-color: #dee2e6;
+}
+
+.q-select-radio + .q-select-radio {
+  margin-left: 12px;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+  content: none;
+}
+
+.r-chart-container {
+  align-items: stretch;
+  display: flex;
+}
+
+.r-chart-label {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.r-chart-label-group {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+}
+
+.text-accent {
+  color: var(--accent-color);
+  font-size: 1.4em;
+}
