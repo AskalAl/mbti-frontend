@@ -7,7 +7,7 @@ export default class QListItem extends React.Component {
   updateCallback = (e) => {
     const index = parseInt(e.target.name);
     const value = parseInt(e.target.id.substring(0, 1));
-    this.props.updateAnswer(index, value);
+    this.props.handleInputChangeAnswer(index, value);
   };
 
   render() {

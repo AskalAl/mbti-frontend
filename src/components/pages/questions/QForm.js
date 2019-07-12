@@ -28,10 +28,10 @@ export default class QForm extends React.Component {
     }
   }
 
-  updateAnswer = (index, answer) => {
+  handleInputChangeAnswer = (index, answer) => {
     this.setState({
-      questions: this.state.questions.map(
-          (q, i) => index === i ? { ...q, answer: answer } : q)
+      questions: this.state.questions.map((q, i) => index === i ? { ...q, answer: answer } : q),
+      unanswered: this.state.unanswered.filter(i => index !== i)
     });
   };
 
@@ -84,7 +84,7 @@ export default class QForm extends React.Component {
                   (q, i) => <QListItem question={q['text']}
                                        index={i} key={i}
                                        unanswered={this.state.unanswered}
-                                       updateAnswer={this.updateAnswer}/>)
+                                       handleInputChangeAnswer={this.handleInputChangeAnswer}/>)
                   : <Alert isOpen className='my-3' color='danger'>
                     <span>Failed to load questions...</span>
                   </Alert>
