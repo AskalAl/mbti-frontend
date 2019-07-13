@@ -4,7 +4,6 @@ import { Alert, Button, Form, Label, ListGroup, } from 'reactstrap';
 import QEmailInput from './QEmailInput';
 import { views } from '../../App';
 import { getQuestions, postAnswers } from '../../../services/backend';
-import ls from 'local-storage';
 import { emailValidationRegex } from '../../../constants';
 
 export default class QForm extends React.Component {
@@ -12,21 +11,36 @@ export default class QForm extends React.Component {
     super(props);
 
     this.state = {
-      questions: ls.get('questions') || [],
+      questions: this.getQuestionsFromStorage(),
       isValidEmail: true,
       unanswered: [],
       emailString: '',
     };
 
-    this.props.updateResults(undefined);
-
     if (!this.state.questions.length) {
-      getQuestions().then(data => {
-        this.setState({ questions: data.questions });
-        ls.set('questions', data.questions);
-      });
+      this.loadQuestionsFromServer();
     }
+
+    this.props.updateResults(undefined);
   }
+
+  getQuestionsFromStorage = () => {
+    try {
+      return JSON.parse(sessionStorage.getItem('questions')) || [];
+    } catch (ignored) {
+      return [];
+    }
+  };
+
+  loadQuestionsFromServer = () => {
+    getQuestions().then(data => {
+      this.setState({
+        questions: data.questions
+      }, () => {
+        sessionStorage.setItem('questions', JSON.stringify(this.state.questions))
+      });
+    });
+  };
 
   handleInputChangeAnswer = (index, answer) => {
     this.setState({
