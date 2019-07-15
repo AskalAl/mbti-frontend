@@ -34,7 +34,6 @@
   min-width: 400px;
 }
 
-
 .q-alert-label {
   font-size: 0.8em;
   font-weight: bold;
@@ -91,6 +90,11 @@
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
   content: none;
+}
+
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: none;
+  border-width: 2px;
 }
 
 .r-chart-container {
